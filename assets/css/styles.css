@@ -3,9 +3,14 @@
   margin: 0;
   box-sizing: border-box;
 }
+body{
+    font-family: Helvetica, Arial, sans-serif;
+}
 :root {
   --gray-color: #3c3c43;
   --underline-color: #7f0019;
+  --red-color: #7F0019;
+  --widget-margin: 5rem;
 }
 .promo-bar {
   display: flex;
@@ -155,4 +160,127 @@
 .navigation-items a {
   text-decoration: none;
   color: var(--gray-color);
+}
+
+
+
+.sale-container {
+    display: grid;
+    grid-template-columns: 1fr 60%;
+    grid-template-rows: auto;
+    position: relative;
+    grid-gap: 1rem;
+    background-color: #d6ad7f;
+    padding: var(--widget-margin) 0;
+    aspect-ratio: 2 / 0.9;
+    align-items: center;
+}
+.sale-carousel-wrapper{
+    width: 100%;
+position: relative;}
+
+ 
+
+.sale-carousel{
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;   
+}
+.sale-carousel::-webkit-scrollbar {
+  display: none; 
+}    
+
+.sale-carousel-card {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    gap: .5rem;
+    scroll-snap-align: start;
+    position: relative;
+}
+.sale-carousel-card::after {
+  content: "";
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);  
+  bottom: 1.4rem;
+  width: 0;
+  height: 2px;
+  background: var(--underline-color, #7f0019);
+  transition: width 0.2s;
+  z-index: 60;
+}
+
+.sale-carousel-card:hover::after {
+  width: 20%; 
+}
+.sale-carousel-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.92;
+  transition: opacity 0.3s ease-in-out;
+}
+.sale-carousel-card:hover img {
+    opacity: 1;}
+.sale-carousel-text {
+    position: absolute;
+    letter-spacing: 0.3px;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    font-size: clamp(1rem, 1vmax, 1.1rem);
+    color: #fff;
+    white-space: nowrap;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+}
+
+.sale-carousel-text::after:hover{
+    content: '';
+    background-color: var(--underline-color);
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: -0.2rem;
+}
+.sale-text-container {
+    line-height: 1.5rem;
+    margin-left: 5rem;
+    color: var(--red-color);
+}
+.promotion-title-text {
+    font-size: clamp(1.8rem, 2.6vmax, 3rem);
+    line-height: clamp(2rem, 2.8vmax, 3.2rem);
+    letter-spacing: 0.3px;
+    color: #7f0019;
+    display: block;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+.promotion-title-text-promotion {
+    font-size: clamp(3.2rem, 6.6vmax, 8.5rem);
+    line-height: clamp(3.4rem, 6.9vmax, 8.7rem);
+    letter-spacing: 1px;
+    color: #7f0019;
+    display: block;
+    margin: 0;
+}
+.promotion-subtitle-text {
+    font-size: clamp(1.1rem, 1.4vmax, 1.4rem);
+    line-height: clamp(1.3rem, 1.5vmax, 1.6rem);
+    letter-spacing: 0.3px;
+    color: #7f0019;
+    font-weight: normal;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.sale-text-container h4:last-of-type{
+   font-weight: normal; 
+   letter-spacing: 1px;
 }
