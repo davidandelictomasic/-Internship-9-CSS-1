@@ -239,6 +239,8 @@ header {
   display: block;
   opacity: 0.92;
   transition: opacity 0.3s ease-in-out;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
 }
 .sale-carousel-card:hover img {
   opacity: 1;
@@ -536,6 +538,7 @@ header {
     var(--max-width)
   );
   margin-inline: auto;
+  margin-bottom: var(--widget-margin);
 }
 .best-seller-section h4 {
   font-size: 18px;
@@ -612,4 +615,181 @@ header {
   line-height: 1.5rem;
   margin-left: 5rem;
   color: var(--red-color);
+}
+
+.seasonal-container {
+  background-color: var(--light-gray-color);
+}
+
+.seasonal-section {
+  padding-top: calc(var(--widget-margin) / 3);
+  --max-width: 1920px;
+  inline-size: Min(
+    calc(100% - calc(2 * var(--widget-margin))),
+    var(--max-width)
+  );
+  margin-inline: auto;
+}
+.seasonal-section h4 {
+  font-size: clamp(0.5rem, 2.5vmax, 1.5rem);
+  margin-bottom: 1rem;
+  color: var(--gray-color);
+  font-weight: bold;
+  anchor-name: --seasonal-carousel;
+}
+
+.seasonal-carousel-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.seasonal-carousel {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 0.5rem;
+  cursor: grab;
+  padding-bottom: 0.5rem;
+}
+.seasonal-carousel::-webkit-scrollbar {
+  display: none;
+}
+.seasonal-carousel::scroll-button(left),
+.seasonal-carousel::scroll-button(right) {
+  font-size: clamp(0.5rem, 2.5vmax, 1.2rem);
+  translate: -100%;
+  content: " →";
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  position: fixed;
+  position-anchor: --seasonal-carousel;
+  position-area: right center;
+}
+.seasonal-carousel::scroll-button(left) {
+  translate: -200%;
+  content: "←";
+}
+
+.seasonal-carousel > a {
+  flex: 0 0 auto;
+  width: calc((100vmax - 2.5 * var(--widget-margin)) / 4);
+  max-width: 460px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: relative;
+}
+.seasonal-carousel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.seasonal-carousel p {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(0.9rem, 1vmax, 1rem);
+  margin: 0.6rem 0;
+  text-align: left;
+  font-weight: bold;
+  line-height: 1.4;
+  color: var(--gray-color);
+  text-decoration: none;
+}
+
+.seasonal-carousel p::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -0.2em;
+  width: 0;
+  height: 3px;
+  background-color: var(--underline-color);
+  transition: width 0.2s;
+}
+
+.seasonal-carousel a:hover p::after {
+  width: 100%;
+}
+.seasonal-carousel img {
+  transition: transform 0.3s ease;
+}
+
+.seasonal-carousel a:hover img {
+  transform: scale(1.01);
+}
+
+.stories-section {
+  --max-width: 1920px;
+  inline-size: Min(
+    calc(100% - calc(2 * var(--widget-margin))),
+    var(--max-width)
+  );
+  margin-inline: auto;
+  margin-bottom: var(--widget-margin);
+}
+.stories-section h4 {
+  font-size: 18px;
+  margin-bottom: 1rem;
+  color: var(--gray-color);
+  font-weight: bold;
+  letter-spacing: 0.25px;
+}
+
+.stories-grid {
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+}
+
+.stories-grid-card {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+}
+
+
+.stories-grid-card:hover .title,
+.stories-grid-card:hover .description {
+  color: var(--red-color);
+}
+
+.stories-grid-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 152 / 187;
+  object-fit: cover;
+}
+
+.stories-grid-card .title {
+  font-size: 1.125rem;
+  line-height: 1.555555555555556;
+  font-weight: bold;
+  color: var(--gray-color);
+  text-align: left;
+}
+.stories-grid-card .description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  color: var(--gray-color);
+  text-align: left;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2.25rem;
 }
