@@ -11,6 +11,8 @@ body{
   --underline-color: #7f0019;
   --red-color: #7F0019;
   --widget-margin: 5rem;
+  --max-width: 1920px;
+  --light-gray-color: #f5f3f2;
 }
 .promo-bar {
   display: flex;
@@ -199,7 +201,7 @@ position: relative;}
     scroll-snap-align: start;
     position: relative;
 }
-.sale-carousel-card::after {
+/* .sale-carousel-card::after {
   content: "";
   position: absolute;
   left:50%;
@@ -214,7 +216,25 @@ position: relative;}
 
 .sale-carousel-card:hover::after {
   width: 20%; 
+} */
+
+
+.sale-carousel-card p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -0.2em; 
+    width: 0;
+    height: 2px;
+    background-color: var(--underline-color);
+    transition: width 0.2s;
 }
+.sale-carousel-card:hover p::after {
+    width: 100%;
+}
+
+
 .sale-carousel-card img {
   width: 100%;
   height: auto;
@@ -283,4 +303,116 @@ position: relative;}
 .sale-text-container h4:last-of-type{
    font-weight: normal; 
    letter-spacing: 1px;
+}
+
+.highlights-container {
+        background-color: var(--light-gray-color);
+
+}
+
+.highlights-section
+{
+  padding-top: calc(var(--widget-margin) / 3);
+    --max-width: 1920px;
+    inline-size: Min(calc(100% - calc(2 * var(--widget-margin))), var(--max-width));
+    margin-inline: auto;
+}
+.highlights-section h4{
+    font-size: clamp(0.5rem, 2.5vmax, 1.5rem);
+    margin-bottom: 1rem;
+    color: var(--gray-color);
+    font-weight: bold;
+         anchor-name: --highlights-carousel;
+
+}
+
+.highlights-carousel-wrapper{
+    width: 100%;
+    position: relative;
+}
+
+.highlights-carousel {
+    display: flex;  
+    justify-content: flex-start;    
+    overflow-x: auto;
+     -webkit-overflow-scrolling: touch; 
+     scroll-behavior: smooth; 
+    gap: 0.5rem;
+    cursor: grab;
+    padding-bottom: 0.5rem;
+     user-select: none; 
+}
+ .highlights-carousel::-webkit-scrollbar {
+  display: none; 
+}
+.highlights-carousel::scroll-button(left),.highlights-carousel::scroll-button(right){
+  font-size: clamp(0.5rem, 2.5vmax, 1.2rem);
+  translate: -100%;
+  content: ' →';
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  position: fixed;
+  position-anchor: --highlights-carousel;
+  position-area: right center;
+}
+.highlights-carousel::scroll-button(left){
+  translate: -200%;
+    content: '←';
+
+}
+
+
+.highlights-carousel > a{
+    flex: 0 0 auto;
+    width: calc((100vmax - 2.5 * var(--widget-margin)) / 4);
+    max-width: 460px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+}
+.highlights-carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.highlights-carousel p {
+    position: relative;
+    display: inline-block;
+    font-size: clamp(0.9rem, 1vmax, 1rem);
+    margin: 0.6rem 0;
+    text-align: left;
+    font-weight: bold;
+    line-height: 1.4;
+    color: var(--gray-color);
+    text-decoration: none;
+}
+
+.highlights-carousel p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -0.2em; 
+    width: 0;
+    height: 3px;
+    background-color: var(--underline-color);
+    transition: width 0.2s;
+}
+
+.highlights-carousel a:hover p::after {
+    width: 100%;
+}
+.highlights-carousel img {
+    transition: transform 0.3s ease;
+}
+
+.highlights-carousel a:hover img {
+    transform: scale(1.01);
 }
