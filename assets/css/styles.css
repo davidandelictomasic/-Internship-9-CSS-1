@@ -967,10 +967,15 @@ h6 {
   display: flex;
   justify-content: flex-end;
 }
+.furniture-right-text a{
+  
+  text-decoration: none;
+}
 .furniture-right h4 {
   text-align: right;
   position: relative;
   width: fit-content;
+  color: var(--red-color);
 }
 .furniture-right h4::after {
   content: "";
@@ -1191,4 +1196,20 @@ footer {
   height: 100%;
   max-width: 40px;
   cursor: pointer;
+}
+.input-section button a {
+ text-decoration: none;
+ color: #fff;
+}
+footer li:hover{
+  text-decoration: underline;
+}
+.footer-links-section div:last-of-type div:hover,.footer-links-section div:last-of-type ul li:hover{
+  text-decoration: underline;
+  
+}
+.footer-links-section div:last-of-type ul li{
+  text-decoration: none;
+  color: white;
+  
 }
